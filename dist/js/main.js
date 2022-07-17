@@ -1,15 +1,24 @@
 "use strict"
 
-var allClearBtn = document.querySelector('#allClear');
-var btns = document.querySelectorAll('button');
+const btns = document.querySelectorAll('.digitBtn');
+const equalBtn = document.querySelector('#equal');
+let result = "";
 
-function clearAll(e) {
-    console.log(e.target.innerText);
+for(var i = 0; i < btns.length; i++) {    
+    btns[i].onclick = (e) => {
+        let value = e.target.innerText;
+        result += value;        
+        console.log(result);
+    }            
 }
 
-allClearBtn.onclick = clearAll;
+equalBtn.onclick = (e) => {
 
-btns.forEach(btn => {
-    console.log(btn.innerText);
-});
-
+    for(var i = 0; i < result.length; i++) {
+        if(result[i] == '+') {
+          var plusPosition = i;
+        }    
+        let firstDigit = result.slice(0, plusPosition);
+        console.log(firstDigit);    
+    }            
+}
