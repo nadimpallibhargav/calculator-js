@@ -15,10 +15,25 @@ for(var i = 0; i < btns.length; i++) {
 equalBtn.onclick = (e) => {
 
     for(var i = 0; i < result.length; i++) {
-        if(result[i] == '+') {
-          var plusPosition = i;
-        }    
-        let firstDigit = result.slice(0, plusPosition);
-        console.log(firstDigit);    
-    }            
+        if(result[i] == '+' || result[i] == '-' || result[i] == '*' || result[i] == '%' || result[i] == '/') {
+          var operatorIndex = i;
+          var operator = result[i];
+        }      
+    }        
+
+    let firstValue = +result.slice(0, operatorIndex);
+    let secondValue = +result.slice(operatorIndex+1, result.length);     
+
+    if(operator == '+') {
+        console.log(firstValue + secondValue);
+    } else if(operator == '-'){
+        console.log(firstValue - secondValue);
+    } else if(operator == '*'){
+        console.log(firstValue * secondValue);
+    } else if(operator == '/'){
+        console.log(firstValue / secondValue);
+    } else if(operator == '%'){
+        console.log(firstValue % secondValue);
+    } 
+
 }
