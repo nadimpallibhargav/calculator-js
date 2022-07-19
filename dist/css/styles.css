@@ -4,17 +4,93 @@
 
 body {
   font-family: Arial, Helvetica, sans-serif;
-  background-color: #000000;
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.orangeBtn {
+  color: #f07238;
+}
+
+p {
+  color: #ffffff;
 }
 
 .container {
-  max-width: 1200px;
-  margin: auto;
-  padding: 100px;
+  max-width: 375px;
+  margin: 100px auto;
+  padding: 40px 10px 10px;
+  border: 1px solid #000000;
+  background-color: #000000;
 }
 
 .result {
-  border: 1px solid grey;
+  border-bottom: 1px solid rgba(222, 226, 230, 0.1490196078);
   padding: 10px;
   margin-bottom: 30px;
+}
+.result p {
+  text-align: right;
+  font-size: 28px;
+  min-height: 32px;
+  padding-right: 30px;
+}
+
+#history {
+  min-height: 100px;
+}
+#history tr {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-right: 30px;
+}
+#history tr td {
+  text-align: right;
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.3098039216);
+}
+#history tr i {
+  font-size: 10px;
+  color: #f07238;
+  border-radius: 50%;
+  border: 1px solid #f07238;
+  width: 15px;
+  height: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+button {
+  background: #000000;
+  color: #ffffff;
+  border: none;
+}
+
+#calcTable {
+  width: 100%;
+  text-align: center;
+}
+#calcTable tr {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+#calcTable tr td {
+  flex-basis: 25%;
+}
+#calcTable button {
+  font-size: 24px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+button#equal {
+  border-radius: 50%;
+  background: #f07238;
+  width: 30px;
+  height: 30px;
+  color: #ffffff;
 }/*# sourceMappingURL=styles.css.map */

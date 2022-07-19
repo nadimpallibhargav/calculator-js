@@ -5,43 +5,48 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CALCULATOR</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <link rel="stylesheet" href="./dist/css/styles.css">
 </head>
 <body>
     <div class="container">
+        <div id="history">          
+            
+        </div>
+
         <div class="result">
 
         </div>
         <table id="calcTable">
             <tr>
-                <td><button id="allClear">AC</button></td>
-                <td><button>&#60;</button></td>
-                <td><button id="mod" class="digitBtn" value="%">%</button></td>
-                <td><button id="divi" class="digitBtn" value="/">/</button></td>
+                <td><button id="allClear" class="orangeBtn">C</button></td>
+                <td><button id="backspace" class="orangeBtn"><i class="fas fa-backspace"></i></button></td>
+                <td><button id="mod" class="digitBtn orangeBtn" value="%">%</button></td>
+                <td><button id="divi" class="digitBtn orangeBtn" value="/">/</button></td>
             </tr>
             <tr>
                 <td><button id="seven" class="digitBtn" value="7">7</button></td>
                 <td><button id="seven" class="digitBtn" value="8">8</button></td>
                 <td><button id="nine" class="digitBtn" value="9">9</button></td>
-                <td><button id="mul" class="digitBtn" value="*">*</button></td>
+                <td><button id="mul" class="digitBtn orangeBtn" value="*">*</button></td>
             </tr>
             <tr>
                 <td><button id="four" class="digitBtn"  value="4">4</button></td>
                 <td><button id="five" class="digitBtn"  value="5">5</button></td>
                 <td><button id="six" class="digitBtn"  value="6">6</button></td>
-                <td><button id="minus" class="digitBtn" value="-">-</button></td>
+                <td><button id="minus" class="digitBtn orangeBtn" value="-">-</button></td>
             </tr>
             <tr>
                 <td><button id="one" class="digitBtn"  value="1">1</button></td>
                 <td><button id="two" class="digitBtn"  value="2">2</button></td>
                 <td><button id="three" class="digitBtn"  value="3">3</button></td>
-                <td><button id="add" class="digitBtn"  value="+">+</button></td>
+                <td><button id="add" class="digitBtn orangeBtn"  value="+">+</button></td>
             </tr>
             <tr>
-                <td><button>&nbsp;</button></td>
+                <td><button id="clearHistory" class="orangeBtn">AC</button></td>
                 <td><button id="zero" class="digitBtn"  value="0">0</button></td>
                 <td><button id="dot" class="digitBtn" value=".">.</button></td>
-                <td><button id="equal"  value="=">=</button></td>
+                <td><button id="equal" class="orangeBtn"  value="=">=</button></td>
             </tr>
         </table>
     </div>
