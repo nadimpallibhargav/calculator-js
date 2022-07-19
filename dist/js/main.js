@@ -22,15 +22,38 @@ for(var i = 0; i < btns.length; i++) {
     }            
 }
 
-function save() {      
+var historyArray = [];
+
+equalBtn.onclick = (e) => {        
+
+    historyArray.push({result: eval(result)});
+
+    var key = historyArray.key;
+
+    // historyArray.map((index, data) => {
+    //     sessionStorage.setItem(index, data.result);  
+    // })
+
+    console.log(historyArray);
+
+    var key = resultList.innerText;
+    // var value = resultList.innerText;
+
+    sessionStorage.setItem(key, JSON.stringify(historyArray));    
+    // sessionStorage.setItem(key, value);    
+    save(); 
+
+    result = "";
+    resultList.innerText = "";    
+    return false;
+}
+
+function save() {          
+
     historyDiv.innerHTML = "";  
-    var newArray = [];
     for(var i = 0; i < sessionStorage.length; i++) {
         var a = sessionStorage.key(i);
-        var b = sessionStorage.getItem(a);    
-
-        newArray[i] = {a: b}
-        console.log(newArray[i]);
+        var b = sessionStorage.getItem(a);
 
         var tr = document.createElement('tr');
         var resultTd = document.createElement('td');        
@@ -40,28 +63,17 @@ function save() {
 
         var tr = document.createElement('tr');
         historyDiv.appendChild(tr).appendChild(resultTd).insertAdjacentElement("afterend", buttonTd).appendChild(button);                     
-        resultTd.innerText = a + ' = ' + eval(b);
+        resultTd.innerText = a + ' = ' + b.stringify;
         button.className = 'deleteBtn';
         button.innerHTML = '<i class="fas fa-times"></i>';
 
         function deleteBtn(e) {
             e.preventDefault();
-            sessionStorage.removeItem(i);
-            console.log(e.target.parentNode.parentNode.parentNode);
+            sessionStorage.removeItem(a);
             e.target.parentNode.parentNode.parentNode.style.display = "none";
         }
 
     }
-    return false;
-}
-
-equalBtn.onclick = (e) => {    
-    var key = resultList.innerText;
-    var value = resultList.innerText;
-    sessionStorage.setItem(key,value);    
-    save(); 
-    result = eval(result);
-    resultList.innerText = result;    
     return false;
 }
 
