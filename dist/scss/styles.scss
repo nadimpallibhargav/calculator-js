@@ -45,6 +45,12 @@ p {
     align-items: center;
     margin-bottom: 20px;
     padding-right: 30px;
+    &:last-of-type {
+      td {
+        color: #ffffff;
+        font-size: 20px;
+      }  
+    }
     td {
       text-align: right;      
       font-size: 18px;

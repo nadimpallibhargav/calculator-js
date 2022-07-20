@@ -46,6 +46,10 @@ p {
   margin-bottom: 20px;
   padding-right: 30px;
 }
+#history tr:last-of-type td {
+  color: #ffffff;
+  font-size: 20px;
+}
 #history tr td {
   text-align: right;
   font-size: 18px;
