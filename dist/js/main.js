@@ -22,24 +22,48 @@ for(var i = 0; i < btns.length; i++) {
     }            
 }
 
+var myArray = [];
+
 equalBtn.onclick = (e) => {        
 
     var tr = document.createElement('tr');
     var resultTd = document.createElement('td');        
     var buttonTd = document.createElement('td');        
     var button = document.createElement('button');  
-    button.onclick = deleteBtn;      
+         
 
-    var tr = document.createElement('tr');
-    historyDiv.appendChild(tr).appendChild(resultTd).insertAdjacentElement("afterend", buttonTd).appendChild(button);                     
-    resultTd.innerText = result + ' = ' + eval(result);
-    button.className = 'deleteBtn';
-    button.innerHTML = '<i class="fas fa-times"></i>';
+    myArray.push({result : `${result} = ${eval(result)}`});
 
-    function deleteBtn(e) {
-        e.preventDefault();
-        e.target.parentNode.parentNode.parentNode.style.display = "none";
+    for(let i = 0; i < myArray.length; i++) {
+        localStorage.setItem("myArray", JSON.stringify(myArray));
     }
+
+    var arrayNew = JSON.parse(localStorage.getItem("myArray"));
+
+    for(let i = 0; i < arrayNew.length; i++) {
+        var a = arrayNew[i];
+        var arrayV = a.result;
+
+        button.onclick = deleteBtn;     
+        var tr = document.createElement('tr');
+        historyDiv.appendChild(tr).appendChild(resultTd).insertAdjacentElement("afterend", buttonTd).appendChild(button);                     
+        resultTd.innerText = arrayV;
+        button.className = 'deleteBtn';
+        button.innerHTML = '<i class="fas fa-times"></i>';    
+
+        function deleteBtn(e,i) {
+            myArray.splice(i,1);
+            var myArrayNew = myArray;
+
+            for(let i = 0; i < myArrayNew.length; i++) {
+                localStorage.setItem("myArray", JSON.stringify(myArrayNew));
+            }
+
+            arrayNew = JSON.parse(localStorage.getItem("myArray"));
+
+            e.target.parentNode.parentNode.parentNode.remove();
+        }
+    }            
 
     result = "";
     resultList.innerText = "";    
@@ -70,7 +94,7 @@ allClearBtn.onclick = (e) => {
 }
 
 clearHistoryBtn.onclick = (e) => {
-    sessionStorage.clear();
+    localStorage.clear();
     historyDiv.innerHTML = "";
     return false;
 }
